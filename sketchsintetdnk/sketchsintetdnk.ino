@@ -10,7 +10,7 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 #define SCREEN_ADDRESS 0x3C
 #include "pitches.h"
 
-
+//GitHub black magic situacija
 
 Button leftB(2);
 Button rightB(4);
