@@ -66,7 +66,7 @@ display.setCursor(0,10);
   pinMode(4, INPUT_PULLUP);
   pinMode(7, INPUT_PULLUP);
 
-  // put your setup code here, to run once:
+
   Serial.begin(9600);
 
 }
@@ -137,7 +137,7 @@ tempo=map(pot2, 0,1023,60,240);
       Serial.println("tempo");
       Serial.println(preracunanTempo);
     }
-    //play mode  tukaj prozimo avdio glede na step na katerem smo. step pa ne menjamo s klikanjem ampak avtomatsko.
+    
     lightUpLED(korak, 1);
     lightOffOther(korak);
 
@@ -146,6 +146,8 @@ tempo=map(pot2, 0,1023,60,240);
       playModeOn = false;
       lightOffOther(16);
     }
+    //funkcija tone() ustvari zvok. ima dva parametra, ločena z vejico. prvi je pin na katerem zaigra ton
+    //tega pusti pri miru, drugi pa je frekvenca, sem napises visino tona v herzih. 440 880 220
     tone(3, dolociFrekvenco(korak));
 
   }
