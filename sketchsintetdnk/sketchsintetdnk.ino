@@ -1,3 +1,6 @@
+//to je sequencer za syntete, v katerega lahko v write-mode-u vtipkaš sekvenco tonov in jih play mode-u predvajaš.
+//za zvok uporablja tone() funkcijo, ki oddaja audio na D3
+
 #include <JC_Button.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
@@ -10,7 +13,7 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 #define SCREEN_ADDRESS 0x3C
 #include "pitches.h"
 
-//GitHub black magic situacija
+
 
 Button leftB(2);
 Button rightB(4);
