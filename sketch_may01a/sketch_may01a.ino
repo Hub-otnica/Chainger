@@ -1,10 +1,14 @@
 #include <TimerOne.h>
+
+//sintetizator zvoka za Syntete razvojno okolje. Sintetizator ima 5- wave formov. med katerimi izbiramo s potenciometrom A2
+
+//vrednosti za sinus ne bomo računali ampak prebrali iz tabelce.
 const char PROGMEM sinetable[128] = {
   0, 0, 0, 0, 1, 1, 1, 2, 2, 3, 4, 5, 5, 6, 7, 9, 10, 11, 12, 14, 15, 17, 18, 20, 21, 23, 25, 27, 29, 31, 33, 35, 37, 40, 42, 44, 47, 49, 52, 54, 57, 59, 62, 65, 67, 70, 73, 76, 79, 82, 85, 88, 90, 93, 97, 100, 103, 106, 109, 112, 115, 118, 121, 124,
   128, 131, 134, 137, 140, 143, 146, 149, 152, 155, 158, 162, 165, 167, 170, 173, 176, 179, 182, 185, 188, 190, 193, 196, 198, 201, 203, 206, 208, 211, 213, 215, 218, 220, 222, 224, 226, 228, 230, 232, 234, 235, 237, 238, 240, 241, 243, 244, 245, 246, 248, 249, 250, 250, 251, 252, 253, 253, 254, 254, 254, 255, 255, 255,
 };
 
-
+//deklariramo spremenljivke:
 unsigned char wavetable[256];
 uint8_t amplitude = 255;
 unsigned int frequency, _phase;
@@ -14,13 +18,10 @@ int pot4;
 uint8_t pulz;
 uint8_t izbira;
 
-//unsigned long decayTime;
-//unsigned long attackTime;
-void setup() {
-  // put your setup code here, to run once:
-  
 
-  //avdio
+void setup() {
+
+  //avdio: uporabljam Timer1 z dedicated knjižnico. Zvok dobimo na pinu 10
   initAudio();
   pinMode(9, OUTPUT);
   pinMode(10, OUTPUT);
@@ -34,7 +35,7 @@ void setup() {
 
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  // najprej preberemo vrednosti potenciometrov(ali CV vhodov)
   frequency = analogRead(A0);
   pot2 = analogRead(A1);
   pot3 = analogRead(A2);
